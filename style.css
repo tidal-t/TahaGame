@@ -1,0 +1,223 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+.game-frame {
+  width: 55rem;
+  height: 25rem;
+  /* border: 1px solid black; */
+  position: relative;
+  overflow: hidden;
+  background-color: #fef1ba;
+}
+.character-container {
+  position: absolute;
+  top: 275px;
+  left: 100px;
+  z-index: 100;
+}
+.character {
+  width: 65px;
+  height: 75px;
+
+  z-index: 100;
+}
+.sun {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: url(imgs/backgrounds/sun.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 738px;
+  top: 31px;
+  animation: sunAnimate 60s infinite linear;
+}
+.jumped {
+  animation: jumpAnimate 0.8s linear;
+}
+.block1 {
+  position: absolute;
+  width: 55px;
+  height: 50px;
+  background: url(imgs/backgrounds/cactus1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  inset: auto -60px 55px auto;
+  z-index: 2;
+  animation: cactusAnimate 2500ms infinite linear;
+}
+.block2 {
+  position: absolute;
+  width: 55px;
+  height: 70px;
+  background: url(imgs/backgrounds/cactus2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  inset: auto -60px 55px auto;
+  z-index: 2;
+  animation: cactusAnimate 2500ms infinite linear;
+}
+.block12 {
+  position: absolute;
+  width: 110px;
+  /* height: 70px; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  inset: auto -60px 55px auto;
+  z-index: 2;
+  animation: cactusAnimate 2500ms infinite linear;
+}
+.block12-1 {
+  width: 55px;
+  height: 70px;
+  background: url(imgs/backgrounds/cactus2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.block12-2 {
+  width: 55px;
+  height: 50px;
+  background: url(imgs/backgrounds/cactus1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.ground {
+  width: 100%;
+  height: 25%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(imgs/backgrounds/ground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: groundAnimate 2500ms infinite linear;
+}
+.ground::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 54.7rem;
+  right: 0;
+  background: url(imgs/backgrounds/ground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* animation: groundAnimate 2s infinite linear; */
+}
+.cactus-door2 {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background: url(imgs/backgrounds/cactus-door2.png);
+  background-size: cover;
+  animation: CactusDoorAnimate 20s infinite linear;
+}
+.cactus-door1 {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background: url(imgs/backgrounds/cactus-door.png);
+  background-size: cover;
+  inset: auto 35px 100px auto;
+  animation: CactusDoorAnimate 20s infinite linear;
+}
+.ground img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.score{
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 1rem;
+}
+.startGame{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#FEF1BA,#D6AF14);
+  z-index: 1000;
+  display: grid;
+  place-content: center;
+}
+.img-container{
+  width: 150px;
+  height: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+}
+.img-container:hover{
+  transform: scale(1.2);
+
+}
+.img-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+@keyframes jumpAnimate {
+  0% {
+    top: 275px;
+
+  }
+  50% {
+    top: 155px;
+
+  }
+  100% {
+    top: 275px;
+
+  }
+}
+@keyframes groundAnimate {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-55rem);
+  }
+}
+@keyframes cactusAnimate {
+  0% {
+    right: -60px;
+  }
+  100% {
+    right: 850px;
+  }
+}
+@keyframes CactusDoorAnimate {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-800px);
+  }
+}
+@keyframes sunAnimate {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-800px);
+  }
+}
+
+@media only screen and (max-width:720px){
+  .game-frame{
+    
+  }
+}
